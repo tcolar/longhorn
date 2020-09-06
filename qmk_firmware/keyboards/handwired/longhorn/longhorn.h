@@ -4,9 +4,9 @@
 #include "quantum.h"
 
 /*
-Note: I wired the columns on the right hand "mirrored" from the left
+Note: I wired the columns on the right hand "mirrored" compared to the left.
 Flipping them back here in the layout mapping is easier than rewiring :)
-that's why it goes 0,1,2,3,4,5,b,a,9,8,7
+This why it goes 0,1,2,3,4,5 then b,a,9,8,7
 */
 
 #define LAYOUT( \
