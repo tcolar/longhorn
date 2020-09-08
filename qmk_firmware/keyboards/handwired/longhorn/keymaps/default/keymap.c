@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------|---------|---------|---------|-------------------|            |--------|---------|---------|---------|---------|---------| 
     // |   Tab  |   ' "   |   , <   |   . >   |    P    |    Y    |            |   F    |    G    |    C    |    R    |    L    |    ?    | 
     // |--------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------| 
-    // |  Enter |    A    |    O    |    E   | Sft / U |    I     |            |   D    | Sft / H |    T    |    N    |    S    |    -    | 
+    // |  Enter |    A    |    O    |    E   |     U    |    I     |            |   D    |   H    |    T    |    N    |    S    |    -    | 
     // |--------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------| 
     // |   @    |   ; :   | Ctrl / Q| Alt / J| Cmd / K |    X     |            |   B    | Cmd / M | Alt / W | Ctl / V |    Z    |    /    | 
     // ---------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------|
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_DVORAK] = LAYOUT(
         KC_ESC  , KC_NO   , KC_LCBR , KC_LPRN , KC_LBRC , UNDO          ,        REDO  , KC_RBRC , KC_RPRN , KC_RCBR , KC_NO   , TG(1),
         KC_TAB  , KC_QUOT , KC_COMM , KC_DOT  , KC_P    , KC_Y          ,        KC_F  , KC_G    , KC_C    , KC_R    , KC_L    , KC_QUES , 
-        KC_ENT  , KC_A    , KC_O    , KC_E    , SFT_U   , KC_I          ,        KC_D  , SFT_H   , KC_T    , KC_N    , KC_S    , KC_MINS , 
+        KC_ENT  , KC_A    , KC_O    , KC_E    , KC_U    , KC_I          ,        KC_D  , KC_H    , KC_T    , KC_N    , KC_S    , KC_MINS , 
         KC_AT   , KC_SCLN , CTL_Q   , ALT_J   , CMD_K   , KC_X          ,        KC_B  , CMD_M   , ALT_W   , CTL_V   , KC_Z    , KC_PSLS, 
                   KC_LSFT , KC_BSPC , L1_LEFT , KC_RGHT , TOG_3         ,          L2  , L2_DN   , L1_UP   , KC_SPC  , KC_RSFT),
 
