@@ -10,4 +10,6 @@ SPLIT_KEYBOARD = yes
 # Enable mouse emulation with kb
 MOUSEKEY_ENABLE = yes
 
+EXTRAKEY_ENABLE = yes
 
+MIDI_ENABLE = yes
