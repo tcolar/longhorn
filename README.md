@@ -233,4 +233,4 @@ It works best to use auto-flash and then press the kb reset button (auto-flash b
 
 It works great, next up is figuring out some baseplate and tenting, maybe 3D printed, maybe wood.
 
-![both](./pics/firmware.jpg)
+![both](./pics/legos.jpg)
