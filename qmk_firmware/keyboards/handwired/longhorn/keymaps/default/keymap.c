@@ -31,7 +31,7 @@ enum kb_layers {
 };
 
 // Layer keys
-const uint16_t PROGMEM L1      = LT(1, KC_NO);   // Layer1, symbols
+const uint16_t PROGMEM L1      = LT(1, KC_SPC);   // Layer1, or space
 const uint16_t PROGMEM L2      = LT(2, KC_NO);   // L2, activate func layers
 const uint16_t PROGMEM TOG_3   = TG(3);          // toggle qwerty layer
 
@@ -82,14 +82,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------| 
     // |   :    |   ; :   | Ctrl / Q| Alt / J| Cmd / K  |   X     |            |   B    | Cmd / M | Alt / W | Ctl / V |    Z    |    /    | 
     // ---------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------|
-    //          | Bkspc   | Space   |  Del   |     Up   |  Down   |            |  Left  |   Right |  L2     |  L1     |  Enter  |
+    //          | Bkspc   | L1/SPC  |  Del   |     Up   |  Down   |            |  Left  |   Right |  L2     |  L1/SPC |  Enter  |
     //          ---------------------------------------------------            --------------------------------------------------
     [_DVORAK] = LAYOUT(
         KC_CAPS , KC_GRV  , KC_LCBR , KC_LPRN , KC_LBRC , UNDO          ,        REDO  , KC_RBRC , KC_RPRN , KC_RCBR , KC_EQL  , TG(1),
         KC_ESC  , KC_QUOT , KC_COMM , KC_DOT  , KC_P    , KC_Y          ,        KC_F  , KC_G    , KC_C    , KC_R    , KC_L    , KC_QUES , 
         KC_TAB  , KC_A    , KC_O    , KC_E    , SFT_U   , KC_I          ,        KC_D  , SFT_H   , KC_T    , KC_N    , KC_S    , KC_MINS , 
         KC_COLN , KC_SCLN , CTL_Q   , ALT_J   , CMD_K   , KC_X          ,        KC_B  , CMD_M   , ALT_W   , CTL_V   , KC_Z    , KC_PSLS, 
-                  KC_BSPC ,  KC_SPC , KC_DEL  , KC_UP   , KC_DOWN       ,      KC_LEFT , KC_RGHT ,    L2   ,   L1    , KC_ENT),
+                  KC_BSPC ,  L1     , KC_DEL  , KC_UP   , KC_DOWN       ,      KC_LEFT , KC_RGHT ,    L2   ,   L1    , KC_ENT),
 
     // Numbers and math symbols on right (Numbers are top to bottom, standard numpads make little sense to me).
     // Nav keys on left, "WASD style".
@@ -104,14 +104,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
     // |        |    :    |    #    | Page Dn |    \    |    =     |           |   .    |    7     |   8    |    9    |    *    |    /    | 
     // ---------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------|
-    //          | D_SOL   |  Space  |  D_EOL  |         |          |           |  HOME  |   END   |  TOG_3  |  L1     |         |
+    //          | D_SOL   |  L1     |  D_EOL  |         |          |           |  HOME  |   END   |  TOG_3  |  L1     |         |
     //          ----------------------------------------------------           --------------------------------------------------
     [_SYMBOLS] = LAYOUT(
         LOGOUT  , WIN_LEFT, KC_NO   , KC_PGUP , KC_NO   , VI_BYE         ,      VI_SAVE , KC_NO    , SCR_SHOT, KC_NO  , WIN_RGHT, KC_TRNS , 
         KC_TRNS , KC_GRV  , KC_DLR  , KC_UP   , KC_AMPR , KC_PIPE        ,      KC_0    , KC_1     , KC_2    , KC_3   , KC_PERC , KC_CIRC , 
         KC_TILD , KC_AT   , KC_LEFT , KC_DOWN , KC_RGHT , KC_EXLM        ,      KC_COMM , KC_4     , KC_5    , KC_6   , KC_PLUS , KC_MINS ,
         KC_TRNS , KC_COLN , KC_HASH , KC_PGDN , KC_BSLS , KC_EQL         ,      KC_DOT  , KC_7     , KC_8    , KC_9   , KC_ASTR , KC_SLSH ,
-                  D_SOL   , KC_TRNS , D_EOL   ,  KC_NO  , KC_NO          ,      HOME    ,   END    , TOG_3  ,  L1     , KC_TRNS),
+                  D_SOL   , KC_TRNS , D_EOL   ,  KC_NO  , KC_NO          ,      HOME    ,   _END   , TOG_3  ,  L1     , KC_TRNS),
 
     // Function keys, Mouse nav, volume, LEDs, and other rarely used keys.
     //
@@ -133,23 +133,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO   , KC_NO   , KC_BTN1 , KC_BTN2 , KC_BTN3 , KC_MUTE        ,       RGB_TOG , KC_NO    , KC_NO   , KC_NO  , KC_PSCR , KC_SLCK, 
                   KC_NO   , KC_NO   , KC_NO   ,  KC_NO  , KC_NO          ,        KC_NO  , KC_NO    , KC_NO   , KC_NO  , RESET),
 
-    // Normal-ish QWERTY keyboard, maybe to play a game without key remapping or something ...
+    // Gaming layout ...
     //
     // -------------------------------------------------------------             ------------------------------------------------------------
-    // |  Esc   |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    |Backspace|
+    // |  Caps  |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    | TOG3    |
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  Tab   |     Q   |    W    |    E    |    R     |   T     |             |   Y    |    U    |    I    |   O     |    P    |   \ |   | 
+    // |  Tab   |     T   |    Q    |    R    |    E     |   X     |             | ESC    |    '    |   UP    |    /    |  PG_UP  |  VOL+   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  Caps  |     A   |    S    |    D    |    F     |   G     |             |   H    |    J    |    K    |   L     |  ; :    |   ' "   | 
+    // |  M     |     G   |    A    |    W    |    D     |   F     |             |  `     |   LEFT  |   Dn    |   Right |  PG_DN  |  VOL-   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |Shift [ |     Z   |    X    |    C    |    V     |   B     |             |   N    |    M    |   , <   |   . >   |  / ?    | Shift ] | 
+    // |  I     |     B   |    Z    |    S    |    C     |   V     |             |  Y     |   N     |   K     |    +    |   -     |   =     | 
     // ---------|---------|---------|---------|--------------------|             |--------|-------- |---------|---------|---------|---------|
-    //          |   TOG 3 |  Space  |   Ctrl  |  Cmd     |  Alt    |             |   ` ~  |  - _    | TOG 3   |  + =    |  ENTER  |
+    //          |     H   |  Shift  |   Space |    CTRL  |   U     |             |  ALT   |  WIN    | BackSpc |  DEL    |  ENTER  |
     //          ----------------------------------------------------             --------------------------------------------------
     [_QWERTY] = LAYOUT(
-        KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , KC_BSPC, 
-        KC_TAB  , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T           ,          KC_Y  , KC_U    , KC_I    , KC_O    , KC_P    , KC_BSLS, 
-        KC_CAPS , KC_A    , KC_S    , KC_D    , KC_F    , KC_G           ,          KC_H  , KC_J    , KC_K    , KC_L    , KC_COLN , KC_QUOT, 
-        SFT_BR  , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B           ,          KC_N  , KC_M    , KC_COMM , KC_DOT  , KC_SLSH , SFT_RBR, 
-                 KC_BSPC  , KC_SPC  , KC_LCTL, KC_LGUI  , KC_LALT        ,         KC_GRV , KC_MINS , TOG_3   , KC_PLUS , KC_ENT )
+        KC_CAPS , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , TOG_3 , 
+        KC_TAB  , KC_T    , KC_Q    , KC_R    , KC_E    , KC_X           ,         KC_ESC , KC_QUOT , KC_UP   , KC_PSLS , KC_PGUP , KC_VOLU, 
+        KC_M    , KC_G    , KC_A    , KC_W    , KC_D    , KC_F           ,          KC_GRV, KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN , KC_VOLD, 
+        KC_I    , KC_B    , KC_Z    , KC_S    , KC_C    , KC_V           ,          KC_Y  , KC_N    , KC_K    , KC_PLUS , KC_MINS , KC_EQL, 
+                  KC_H    , KC_LSFT , KC_SPC  , KC_LCTL , KC_U           ,        KC_LALT , KC_LGUI , KC_BSPC , KC_DEL  , KC_ENT )
 };
