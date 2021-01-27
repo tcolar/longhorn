@@ -234,3 +234,7 @@ It works best to use auto-flash and then press the kb reset button (auto-flash b
 It works great, next up is figuring out some baseplate and tenting, maybe 3D printed, maybe wood.
 
 ![both](./pics/legos.jpg)
+
+Once I found the spacing and angle I like I made a "plank" for it, and my wife painted our pets on it.
+
+![plank](./pics/plank.jpg)
