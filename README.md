@@ -237,4 +237,4 @@ It works great, next up is figuring out some baseplate and tenting, maybe 3D pri
 
 Once I found the spacing and angle I like I made a "plank" for it, and my wife painted our pets on it.
 
-![plank](./pics/plank.jpg)
+![plank](./pics/planck.jpg)
