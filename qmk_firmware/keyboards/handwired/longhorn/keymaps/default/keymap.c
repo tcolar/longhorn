@@ -31,7 +31,7 @@ enum kb_layers {
 };
 
 // Layer keys
-const uint16_t PROGMEM L1      = LT(1, KC_SPC);   // Layer1, or space
+const uint16_t PROGMEM L1      = LT(1, KC_SPC);  // Layer1, or space
 const uint16_t PROGMEM L2      = LT(2, KC_NO);   // L2, activate func layers
 const uint16_t PROGMEM TOG_3   = TG(3);          // toggle qwerty layer
 
@@ -44,6 +44,7 @@ const uint16_t PROGMEM ALT_W   = RALT_T(KC_W);    // Alt or W
 const uint16_t PROGMEM CTL_V   = RCTL_T(KC_V);    // Command or V
 const uint16_t PROGMEM SFT_U   = LSFT_T(KC_U);    // Shift or U
 const uint16_t PROGMEM SFT_H   = RSFT_T(KC_H);    // Shift or H
+const uint16_t PROGMEM SFT_SPC = LSFT_T(KC_SPC);  // Shift or Space
 
 // Shortcuts
 const uint16_t PROGMEM WIN_LEFT  = LGUI(LALT(KC_LEFT));  // Spectacle, window to left
@@ -64,6 +65,7 @@ const uint16_t PROGMEM D_EOL      = LCTL(KC_K);              // delete to end of
 const uint16_t PROGMEM D_SOL      = LCTL(KC_U);              // delete to start of line
 const uint16_t PROGMEM LOWER      = LSFT(KC_COMMA);          // <
 const uint16_t PROGMEM GREATER    = LSFT(KC_DOT);            // >
+const uint16_t PROGMEM DBLQUOT    = LSFT(KC_QUOT);           // "
 
 // Layout for My custom "longhorn" keyboard. Thibaut Colar.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -76,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Arrows on thumb keys are useful because many shortcuts using arrows.
     //
     // ------------------------------------------------------------            ------------------------------------------------------------
-    // |  Caps  |    `    |    {    |    (    |    [    |    <    |            |    >   |    ]    |    )    |    }    |    =    | Toggle1 |
+    // |  Caps  |    1    |    2    |    3    |    4    |    5    |            |   6    |   7     |    8    |   9     |    0    | Toggle1 |
     // |--------|---------|---------|---------|-------------------|            |--------|---------|---------|---------|---------|---------| 
     // |   Esc  |   ' "   |   , <   |   . >   |    P    |    Y    |            |   F    |    G    |    C    |    R    |    L    |    ?    | 
     // |--------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------| 
@@ -84,56 +86,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |--------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------| 
     // |   :    |   ; :   | Ctrl / Q| Alt / J| Cmd / K  |   X     |            |   B    | Cmd / M | Alt / W | Ctl / V |    Z    |    /    | 
     // ---------|---------|---------|--------|--------------------|            |--------|---------|---------|---------|---------|---------|
-    //          | Bkspc   | L1/SPC  |  Del   |     Up   |  Down   |            |  Left  |   Right |  L2     |  L1/SPC |  Enter  |
+    //          | Bkspc   | SFT/SPC |  Del   |   UNDO   |  REDO   |            | VI_BYE | VI_SAVE |  L2     | L1/SPC  |  Enter  |
     //          ---------------------------------------------------            --------------------------------------------------
     [_DVORAK] = LAYOUT(
-        KC_CAPS , KC_GRV  , KC_LCBR , KC_LPRN , KC_LBRC , LOWER         ,       GREATER , KC_RBRC , KC_RPRN , KC_RCBR , KC_EQL  , TG(1),
+        KC_CAPS , KC_1    , KC_2    , KC_3   , KC_4     , KC_5          ,       KC_6   , KC_7    , KC_8    , KC_9    , KC_0    , TG(1),
         KC_ESC  , KC_QUOT , KC_COMM , KC_DOT  , KC_P    , KC_Y          ,        KC_F  , KC_G    , KC_C    , KC_R    , KC_L    , KC_QUES , 
         KC_TAB  , KC_A    , KC_O    , KC_E    , SFT_U   , KC_I          ,        KC_D  , SFT_H   , KC_T    , KC_N    , KC_S    , KC_MINS , 
         KC_COLN , KC_SCLN , CTL_Q   , ALT_J   , CMD_K   , KC_X          ,        KC_B  , CMD_M   , ALT_W   , CTL_V   , KC_Z    , KC_PSLS, 
-                  KC_BSPC ,  L1     , KC_DEL  , KC_UP   , KC_DOWN       ,      KC_LEFT , KC_RGHT ,    L2   ,   L1    , KC_ENT),
+                  KC_BSPC , SFT_SPC , KC_DEL  , UNDO    , REDO          ,       VI_BYE , VI_SAVE ,    L2   , L1      , KC_ENT),
 
     // Numbers and math symbols on right (Numbers are top to bottom, standard numpads make little sense to me).
     // Nav keys on left, "WASD style".
     // Rest of programming symbols on left as well. 
     //
     // -------------------------------------------------------------           ------------------------------------------------------------
-    // | Logout | WinLeft |         | Page Up |         | Vi bye   |           |Vi save |         | ScrShot |         | WinRight| Toggle1 |
+    // | Logout | WinLeft |         |         |         |          |           |        |         | ScrShot |         | WinRight| Toggle1 |
     // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
-    // |  Esc   |    `    |    $    |    Up   |    &    |    |     |           |   0    |    1    |    2    |    3    |    %    |    ^    | 
+    // |  Esc   |    `    |   <     |    >    |    [    |    ]     |           |  D_SOL |    =    |    *    |  D_EOL  |    %    |    ^    | 
     // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
-    // |   ~    |    @    |   Left  |   Down  |  Right  |    !     |           |   ,    |    4    |    5    |    6    |    +    |    -    | 
-    // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
-    // |        |    :    |    #    | Page Dn |    \    |    =     |           |   .    |    7     |   8    |    9    |    *    |    /    | 
+    // |   ~    |    @    |   {     |   }     |    (    |    )     |           |  Left  |  Down   |    Up   |  Right  |    +    |    -    | 
+    // |--------|---------|---------|---------|--------------------|           |--------|---------| --------|---------|---------|---------| 
+    // |   :    |    #    |   $     |   &     |    |    |    !     |           |  Home  | Pg Dn   |  Pg Up  |  End    |    \    |    /    | 
     // ---------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------|
-    //          | D_SOL   |  L1     |  D_EOL  |  UNDO   |  REDO    |           |  HOME  |   END   |  TOG_3  |  L1     |         |
+    //          |         |         |         |         |          |           |        |         |  TOG_3  |         |         |
     //          ----------------------------------------------------           --------------------------------------------------
     [_SYMBOLS] = LAYOUT(
-        LOGOUT  , WIN_LEFT, KC_NO   , KC_PGUP , KC_NO   , VI_BYE         ,      VI_SAVE , KC_NO    , SCR_SHOT, KC_NO  , WIN_RGHT, KC_TRNS , 
-        KC_TRNS , KC_GRV  , KC_DLR  , KC_UP   , KC_AMPR , KC_PIPE        ,      KC_0    , KC_1     , KC_2    , KC_3   , KC_PERC , KC_CIRC , 
-        KC_TILD , KC_AT   , KC_LEFT , KC_DOWN , KC_RGHT , KC_EXLM        ,      KC_COMM , KC_4     , KC_5    , KC_6   , KC_PLUS , KC_MINS ,
-        KC_TRNS , KC_COLN , KC_HASH , KC_PGDN , KC_BSLS , KC_EQL         ,      KC_DOT  , KC_7     , KC_8    , KC_9   , KC_ASTR , KC_SLSH ,
-                  D_SOL   , KC_TRNS , D_EOL   ,  UNDO   , REDO           ,      HOME    ,   _END   , TOG_3  ,  L1     , KC_TRNS),
+        LOGOUT  , WIN_LEFT, KC_NO   ,   KC_NO ,   KC_NO , KC_NO          ,      KC_NO   , KC_NO    , SCR_SHOT, KC_NO  , WIN_RGHT, KC_TRNS , 
+        KC_TRNS , KC_GRV  , LOWER   , GREATER , KC_LBRC , KC_RBRC        ,      D_SOL   , KC_EQL   , KC_ASTR , D_EOL  , KC_PERC , KC_CIRC , 
+        KC_TILD , KC_AT   , KC_LCBR , KC_RCBR , KC_LPRN , KC_RPRN        ,      KC_LEFT , KC_DOWN  , KC_UP   , KC_RGHT, KC_PLUS , KC_MINS ,
+        KC_COLN , KC_HASH , KC_DLR  , KC_AMPR , KC_PIPE , KC_EXLM        ,      HOME    , KC_PGDN  , KC_PGUP , _END   , KC_BSLS , KC_SLSH ,
+                  KC_NO   , KC_TRNS , KC_NO   , KC_NO   , KC_NO          ,      KC_NO   , KC_NO    , TOG_3   , KC_TRNS, KC_TRNS),
 
     // Function keys, Mouse nav, volume, LEDs, and other rarely used keys.
     //
     // -------------------------------------------------------------            ------------------------------------------------------------
     // |  F1    |    F2   |    F3   |    F4   |    F5   |    F6    |            |   F7   |    F8   |    F9   |   F10   |   F11   |   F12   |
     // |--------|---------|---------|---------|--------------------|            |--------|---------|---------|---------|---------|---------| 
-    // |        | M W Up  |         |  M Up   |         |   Vol+   |            | RgbMod+| Bright+ |         |         |  Insert | Delete  | 
+    // |        |         |         | Bright+ | RgbMod+ |   Vol+   |            |        | M 1     |  M 2    |         |  Insert | Delete  | 
     // |--------|---------|---------|---------|--------------------|            |--------|---------|---------|---------|---------|---------| 
-    // |        | M W Dn  | M Left  |  M Dn   | M Right |   Vol-   |            | RgbMod-| Bright- |         |         |  Eject  |  Pause  | 
+    // |        |         |         | Bright- | RgbMod- |   Vol-   |            | M Left | M Down  |  M Up   | M Right |  Eject  |  Pause  | 
     // |--------|---------|---------|---------|--------------------|            |--------|---------|---------|---------|---------|---------| 
-    // |        |         |   M 1   |   M 2   |   M 3   |   Mute   |            | RbgTog |         |         |         |  PrtScr |  Scroll | 
+    // |        |         |         |         | RbgTog  |   Mute   |            |        | M W Dn  | M W Up  |         |  PrtScr |  Scroll | 
     // ---------|---------|---------|---------|--------------------|            |--------|---------|---------|---------|---------|---------|
     //          |         |         |         |         |          |            |        |         |         |         |  RESET  |
     //          ----------------------------------------------------            --------------------------------------------------
     [_FUNCTION] = LAYOUT(
         KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6          ,        KC_F7  , KC_F8    , KC_F9   , KC_F10 , KC_F11  , KC_F12, 
-        KC_NO   , KC_WH_U , KC_NO   , KC_MS_U , KC_NO   , KC_VOLU        ,       RGB_MOD , KC_BRIU  , KC_NO   , KC_NO  , KC_INS  , KC_DEL,
-        KC_NO   , KC_WH_D , KC_MS_L , KC_MS_D , KC_MS_R , KC_VOLD        ,       RGB_RMOD, KC_BRID  , KC_NO   , KC_NO  , KC_EJCT , KC_PAUS, 
-        KC_NO   , KC_NO   , KC_BTN1 , KC_BTN2 , KC_BTN3 , KC_MUTE        ,       RGB_TOG , KC_NO    , KC_NO   , KC_NO  , KC_PSCR , KC_SLCK, 
-                  KC_NO   , KC_NO   , KC_NO   ,  KC_NO  , KC_NO          ,        KC_NO  , KC_NO    , KC_NO   , KC_NO  , RESET),
+        KC_NO   , KC_NO   , KC_NO   , KC_BRIU , RGB_MOD , KC_VOLU        ,       KC_NO   , KC_BTN1  , KC_BTN2 , KC_NO  , KC_INS  , KC_DEL,
+        KC_NO   , KC_NO   , KC_NO   , KC_BRID , RGB_RMOD, KC_VOLD        ,       KC_MS_L , KC_MS_D  , KC_MS_U , KC_MS_R, KC_EJCT , KC_PAUS, 
+        KC_NO   , KC_NO   , KC_NO   , KC_NO   , RGB_TOG , KC_MUTE        ,       KC_NO   , KC_WH_U  , KC_WH_D , KC_NO  , KC_PSCR , KC_SLCK, 
+                  KC_NO   , KC_NO   , KC_NO   ,  KC_NO  , KC_NO          ,       KC_NO   , KC_NO    , KC_NO   , KC_NO  , RESET),
 
     // Gaming layout ...
     //
