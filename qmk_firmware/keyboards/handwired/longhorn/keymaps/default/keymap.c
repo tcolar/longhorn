@@ -31,41 +31,41 @@ enum kb_layers {
 };
 
 // Layer keys
-const uint16_t PROGMEM L1      = LT(1, KC_SPC);  // Layer1, or space
-const uint16_t PROGMEM L2      = LT(2, KC_NO);   // L2, activate func layers
-const uint16_t PROGMEM TOG_3   = TG(3);          // toggle qwerty layer
+#define L1     LT(1, KC_SPC)  // Layer1, or space
+#define L2     LT(2, KC_NO)   // L2, activate func layers
+#define TOG_3  TG(3)          // toggle qwerty layer
 
 // Modifier Taps
-const uint16_t PROGMEM CTL_Q   = LCTL_T(KC_Q);    // Control when held, Q otherwise
-const uint16_t PROGMEM ALT_J   = LALT_T(KC_J);    // Alt or J
-const uint16_t PROGMEM CMD_K   = LGUI_T(KC_K);    // Command or K
-const uint16_t PROGMEM CMD_M   = RGUI_T(KC_M);    // Command or M
-const uint16_t PROGMEM ALT_W   = RALT_T(KC_W);    // Alt or W
-const uint16_t PROGMEM CTL_V   = RCTL_T(KC_V);    // Command or V
-const uint16_t PROGMEM SFT_U   = LSFT_T(KC_U);    // Shift or U
-const uint16_t PROGMEM SFT_H   = RSFT_T(KC_H);    // Shift or H
-const uint16_t PROGMEM SFT_SPC = LSFT_T(KC_SPC);  // Shift or Space
+#define CTL_Q   LCTL_T(KC_Q)    // Control when held, Q otherwise
+#define SFT_U   LSFT_T(KC_U)    // Shift or U
+#define ALT_J   LALT_T(KC_J)    // Alt or J
+#define CMD_K   LGUI_T(KC_K)    // Command or K
+#define CMD_M   RGUI_T(KC_M)    // Command or M
+#define ALT_W   RALT_T(KC_W)    // Alt or W
+#define CTL_V   RCTL_T(KC_V)    // Command or V
+#define SFT_H   RSFT_T(KC_H)    // Shift or H
+#define SFT_SPC LSFT_T(KC_SPC)  // Shift or Space
 
 // Shortcuts
-const uint16_t PROGMEM WIN_LEFT  = LGUI(LALT(KC_LEFT));  // Spectacle, window to left
-const uint16_t PROGMEM WIN_RGHT  = LGUI(LALT(KC_RGHT));  // Spectacle, window to right
-const uint16_t PROGMEM SCR_SHOT  = SGUI(KC_4);           // Screnshot
-const uint16_t PROGMEM UNDO      = LGUI(KC_Z);
-const uint16_t PROGMEM REDO      = LSFT(LGUI(KC_Z));
-const uint16_t PROGMEM CUT       = LGUI(KC_X);
-const uint16_t PROGMEM COPY      = LGUI(KC_C);
-const uint16_t PROGMEM PASTE     = LGUI(KC_V);
-const uint16_t PROGMEM LOGOUT    = LCTL(LGUI(KC_Q)); 
-const uint16_t PROGMEM HOME      = LCTL(KC_A);
-const uint16_t PROGMEM _END       = LCTL(KC_E);
-const uint16_t PROGMEM SFT_BR     = LSFT_T(KC_LBRC);         // Shift or [
-const uint16_t PROGMEM SFT_RBR    = LSFT_T(KC_RBRC);         // Shift or ]
-const uint16_t PROGMEM CTL_ESC    = LCTL_T(KC_ESC);          // Ctl or Esc
-const uint16_t PROGMEM D_EOL      = LCTL(KC_K);              // delete to end of line
-const uint16_t PROGMEM D_SOL      = LCTL(KC_U);              // delete to start of line
-const uint16_t PROGMEM LOWER      = LSFT(KC_COMMA);          // <
-const uint16_t PROGMEM GREATER    = LSFT(KC_DOT);            // >
-const uint16_t PROGMEM DBLQUOT    = LSFT(KC_QUOT);           // "
+#define WIN_LEFT LGUI(LALT(KC_LEFT))  // Spectacle, window to left
+#define WIN_RGHT LGUI(LALT(KC_RGHT))  // Spectacle, window to right
+#define SCR_SHOT SGUI(KC_4)           // Screnshot
+#define UNDO     LGUI(KC_Z)
+#define REDO     LSFT(LGUI(KC_Z))
+#define CUT      LGUI(KC_X)
+#define COPY     LGUI(KC_C)
+#define PASTE    LGUI(KC_V)
+#define LOGOUT   LCTL(LGUI(KC_Q)) 
+#define HOME     LCTL(KC_A)
+#define _END     LCTL(KC_E)
+#define SFT_BR   LSFT_T(KC_LBRC)         // Shift or [
+#define SFT_RBR  LSFT_T(KC_RBRC)         // Shift or ]
+#define CTL_ESC  LCTL_T(KC_ESC)          // Ctl or Esc
+#define D_EOL    LCTL(KC_K)              // delete to end of line
+#define D_SOL    LCTL(KC_U)              // delete to start of line
+#define LOWER    LSFT(KC_COMMA)          // <
+#define GREATER  LSFT(KC_DOT)            // >
+#define DBLQUOT  LSFT(KC_QUOT)           // "
 
 // Layout for My custom "longhorn" keyboard. Thibaut Colar.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -140,20 +140,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Gaming layout ...
     //
     // -------------------------------------------------------------             ------------------------------------------------------------
-    // |  Caps  |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    | TOG3    |
+    // |  Esc   |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    | TOG3    |
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  Tab   |     T   |    Q    |    R    |    E     |   X     |             | ESC    |    '    |   UP    |    /    |  PG_UP  |  VOL+   | 
+    // |  Tab   |    T    |    Q    |    x    |    E     |   R     |             |   Y    |    U    |   UP    |    /    |  PG_UP  |  VOL+   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  M     |     G   |    A    |    W    |    D     |   F     |             |  `     |   LEFT  |   Dn    |   Right |  PG_DN  |  VOL-   | 
+    // |  Caps  |  Shift  |    A    |    W    |    D     |   F     |             |   G    |   LEFT  |   Dn    |   Right |  PG_DN  |  VOL-   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  I     |     B   |    Z    |    S    |    C     |   V     |             |  Y     |   N     |   K     |    +    |   -     |   =     | 
+    // |   J    |     H   |    Z    |    S    |    C     |   V     |             |   B    |   N     |   M     |    +    |   -     |   =     | 
     // ---------|---------|---------|---------|--------------------|             |--------|-------- |---------|---------|---------|---------|
-    //          |     H   |  Shift  |   Space |    CTRL  |   U     |             |  ALT   |  WIN    | BackSpc |  DEL    |  ENTER  |
+    //          |  Ctrl   |  Alt    |   Space |    Enter |   I     |             |  K     |  WIN    | BackSpc |  DEL    |  L      |
     //          ----------------------------------------------------             --------------------------------------------------
     [_QWERTY] = LAYOUT(
-        KC_CAPS , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , TOG_3 , 
-        KC_TAB  , KC_T    , KC_Q    , KC_R    , KC_E    , KC_X           ,         KC_ESC , KC_QUOT , KC_UP   , KC_PSLS , KC_PGUP , KC_VOLU, 
-        KC_M    , KC_G    , KC_A    , KC_W    , KC_D    , KC_F           ,          KC_GRV, KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN , KC_VOLD, 
-        KC_I    , KC_B    , KC_Z    , KC_S    , KC_C    , KC_V           ,          KC_Y  , KC_N    , KC_K    , KC_PLUS , KC_MINS , KC_EQL, 
-                  KC_H    , KC_LSFT , KC_SPC  , KC_LCTL , KC_U           ,        KC_LALT , KC_LGUI , KC_BSPC , KC_DEL  , KC_ENT )
+        KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , TOG_3 , 
+        KC_TAB  , KC_T    , KC_Q    , KC_X    , KC_E    , KC_R           ,         KC_Y   , KC_U    , KC_UP   , KC_PSLS , KC_PGUP , KC_VOLU, 
+        KC_CAPS , KC_LSFT , KC_A    , KC_W    , KC_D    , KC_F           ,          KC_G  , KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN , KC_VOLD, 
+        KC_J    , KC_H    , KC_Z    , KC_S    , KC_C    , KC_V           ,          KC_B  , KC_N    , KC_M    , KC_PLUS , KC_MINS , KC_EQL, 
+                  KC_LCTL , KC_LALT , KC_SPC  , KC_ENTER, KC_I           ,        KC_K    , KC_LGUI , KC_BSPC , KC_DEL  , KC_L )
 };
