@@ -38,13 +38,13 @@ enum kb_layers {
 // Modifier Taps
 #define CTL_Q   LCTL_T(KC_Q)    // Control when held, Q otherwise
 #define SFT_U   LSFT_T(KC_U)    // Shift or U
-#define ALT_J   LALT(KC_J)    // Alt or J
-#define CMD_K   LGUI(KC_K)    // Command or K
-#define CMD_M   RGUI(KC_M)    // Command or M
-#define ALT_W   RALT(KC_W)    // Alt or W
-#define CTL_V   RCTL(KC_V)    // Command or V
-#define SFT_H   RSFT(KC_H)    // Shift or H
-#define SFT_SPC LSFT(KC_SPC)  // Shift or Space
+#define ALT_J   LALT_T(KC_J)    // Alt or J
+#define CMD_K   LGUI_T(KC_K)    // Command or K
+#define CMD_M   RGUI_T(KC_M)    // Command or M
+#define ALT_W   RALT_T(KC_W)    // Alt or W
+#define CTL_V   RCTL_T(KC_V)    // Command or V
+#define SFT_H   RSFT_T(KC_H)    // Shift or H
+#define SFT_SPC LSFT_T(KC_SPC)  // Shift or Space
 
 // Shortcuts
 #define WIN_LEFT LGUI(LALT(KC_LEFT))  // Spectacle, window to left
@@ -140,20 +140,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Gaming layout ...
     //
     // -------------------------------------------------------------             ------------------------------------------------------------
-    // |  Caps  |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    | TOG3    |
+    // |  Esc   |     1   |    2    |    3    |    4    |    5     |             |   6    |    7    |    8    |   9     |    0    | TOG3    |
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  Tab   |     T   |    Q    |    R    |    E     |   X     |             | ESC    |    '    |   UP    |    /    |  PG_UP  |  VOL+   | 
+    // |  Tab   |    T    |    Q    |    x    |    E     |   R     |             |   Y    |    U    |   UP    |    /    |  PG_UP  |  VOL+   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  M     |     G   |    A    |    W    |    D     |   F     |             |  `     |   LEFT  |   Dn    |   Right |  PG_DN  |  VOL-   | 
+    // |  Caps  |  Shift  |    A    |    W    |    D     |   F     |             |   G    |   LEFT  |   Dn    |   Right |  PG_DN  |  VOL-   | 
     // |--------|---------|---------|---------|--------------------|             |--------|---------|---------|---------|---------|---------| 
-    // |  I     |     B   |    Z    |    S    |    C     |   V     |             |  Y     |   N     |   K     |    +    |   -     |   =     | 
+    // |   J    |     H   |    Z    |    S    |    C     |   V     |             |   B    |   N     |   M     |    +    |   -     |   =     | 
     // ---------|---------|---------|---------|--------------------|             |--------|-------- |---------|---------|---------|---------|
-    //          |     H   |  Shift  |   Space |    CTRL  |   U     |             |  ALT   |  WIN    | BackSpc |  DEL    |  ENTER  |
+    //          |  Ctrl   |  Alt    |   Space |    Enter |   I     |             |  K     |  WIN    | BackSpc |  DEL    |  L      |
     //          ----------------------------------------------------             --------------------------------------------------
     [_QWERTY] = LAYOUT(
-        KC_CAPS , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , TOG_3 , 
-        KC_TAB  , KC_T    , KC_Q    , KC_R    , KC_E    , KC_X           ,         KC_ESC , KC_QUOT , KC_UP   , KC_PSLS , KC_PGUP , KC_VOLU, 
-        KC_M    , KC_G    , KC_A    , KC_W    , KC_D    , KC_F           ,          KC_GRV, KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN , KC_VOLD, 
-        KC_I    , KC_B    , KC_Z    , KC_S    , KC_C    , KC_V           ,          KC_Y  , KC_N    , KC_K    , KC_PLUS , KC_MINS , KC_EQL, 
-                  KC_H    , KC_LSFT , KC_SPC  , KC_LCTL , KC_U           ,        KC_LALT , KC_LGUI , KC_BSPC , KC_DEL  , KC_ENT )
+        KC_ESC  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5           ,          KC_6  , KC_7    , KC_8    , KC_9    , KC_0    , TOG_3 , 
+        KC_TAB  , KC_T    , KC_Q    , KC_X    , KC_E    , KC_R           ,         KC_Y   , KC_U    , KC_UP   , KC_PSLS , KC_PGUP , KC_VOLU, 
+        KC_CAPS , KC_LSFT , KC_A    , KC_W    , KC_D    , KC_F           ,          KC_G  , KC_LEFT , KC_DOWN , KC_RGHT , KC_PGDN , KC_VOLD, 
+        KC_J    , KC_H    , KC_Z    , KC_S    , KC_C    , KC_V           ,          KC_B  , KC_N    , KC_M    , KC_PLUS , KC_MINS , KC_EQL, 
+                  KC_LCTL , KC_LALT , KC_SPC  , KC_ENTER, KC_I           ,        KC_K    , KC_LGUI , KC_BSPC , KC_DEL  , KC_L )
 };
