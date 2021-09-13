@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC  , KC_1    , KC_2    , KC_3   , KC_4     , KC_5          ,       KC_6   , KC_7    , KC_8    , KC_9    , KC_0    , KC_CAPS ,
         DBLQUOT , KC_QUOT , KC_COMM , KC_DOT  , KC_P    , KC_Y          ,        KC_F  , KC_G    , KC_C    , KC_R    , KC_L    , KC_QUES , 
         KC_TAB  , KC_A    , KC_O    , KC_E    , SFT_U   , KC_I          ,        KC_D  , SFT_H   , KC_T    , KC_N    , KC_S    , KC_MINS , 
-        KC_COLN , KC_SCLN , CTL_Q   , ALT_J   , CMD_K   , KC_X          ,        KC_B  , CMD_M   , ALT_W   , CTL_V   , KC_Z    , KC_PSLS, 
+        KC_COLN , KC_SCLN , CTL_Q   , ALT_J   , CMD_K   , KC_X          ,        KC_B  , CMD_M   , ALT_W   , CTL_V   , KC_Z    , KC_SLSH, 
                   KC_BSPC , SFT_SPC , KC_DEL  , UNDO    , REDO          ,       VI_BYE , VI_SAVE ,    L2   , L1      , KC_ENT),
 
     // Numbers and math symbols on right (Numbers are top to bottom, standard numpads make little sense to me).
