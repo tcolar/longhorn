@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Rest of programming symbols on left as well. 
     //
     // -------------------------------------------------------------           ------------------------------------------------------------
-    // | Logout | WinLeft |         |         |         |          |           |        |         | ScrShot |         | WinRight| Toggle1 |
+    // | Logout | WinLeft |         |         |         |          |           |        |         | ScrShot |         | WinRight|  TOG_3  |
     // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
     // |  Esc   |    `    |   <     |    >    |    [    |    ]     |           |  D_SOL |    =    |    *    |  D_EOL  |    %    |    ^    | 
     // |--------|---------|---------|---------|--------------------|           |--------|---------|---------|---------|---------|---------| 
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //          |         |         |         |         |          |           |        |         |  TOG_3  |         |         |
     //          ----------------------------------------------------           --------------------------------------------------
     [_SYMBOLS] = LAYOUT(
-        LOGOUT  , WIN_LEFT, KC_NO   ,   KC_NO ,   KC_NO , KC_NO          ,      KC_NO   , KC_NO    , SCR_SHOT, KC_NO  , WIN_RGHT, KC_TRNS , 
+        LOGOUT  , WIN_LEFT, KC_NO   ,   KC_NO ,   KC_NO , KC_NO          ,      KC_NO   , KC_NO    , SCR_SHOT, KC_NO  , WIN_RGHT, TOG_3 , 
         KC_TRNS , KC_GRV  , LOWER   , GREATER , KC_LBRC , KC_RBRC        ,      D_SOL   , KC_EQL   , KC_ASTR , D_EOL  , KC_PERC , KC_CIRC , 
         KC_TILD , KC_AT   , KC_LCBR , KC_RCBR , KC_LPRN , KC_RPRN        ,      KC_LEFT , KC_DOWN  , KC_UP   , KC_RGHT, KC_PLUS , KC_MINS ,
         KC_COLN , KC_HASH , KC_DLR  , KC_AMPR , KC_PIPE , KC_EXLM        ,      HOME    , KC_PGDN  , KC_PGUP , _END   , KC_BSLS , KC_SLSH ,
